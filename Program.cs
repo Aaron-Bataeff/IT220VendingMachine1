@@ -1,9 +1,5 @@
-﻿// a small console program to simulate a free vending machine. 
-// When started a user should be presented with a list of selections. 
-// Then the user should prompted to input a number to make a selection. 
-// Once the have made a selection the console should display 
-// a message indicating vending of whatever selection they made.
-
+﻿//SabraFisher
+using System;
 
 namespace VendingMachine1
 {
@@ -24,42 +20,68 @@ namespace VendingMachine1
             string input = Console.ReadLine();
             Console.WriteLine();
             Console.WriteLine("You have selected " + input);
+            Console.WriteLine();
 
-            // Call the extracted function that contains the switch
-            ProcessSelection(input);
+            // Switch moved back into Main; each case delegates to a focused method
+            switch (input?.Trim())
+            {
+                case "1":
+                    VendSoda();
+                    break;
+                case "2":
+                    VendChips();
+                    break;
+                case "3":
+                    VendCandy();
+                    break;
+                case "4":
+                    VendWater();
+                    break;
+                case "5":
+                    VendJuice();
+                    break;
+                default:
+                    HandleInvalidSelection();
+                    break;
+            }
 
             Console.WriteLine("Thank you for using the Free Vending Machine!");
         }
 
-        // Extracted switch logic into its own function for clarity and reuse
-        private static void ProcessSelection(string input)
+        // Extracted per-selection behavior into individual methods for clarity and reuse
+        private static void VendSoda()
         {
-            switch (input?.Trim())
-            {
-                case "1":
-                    Console.WriteLine("Vending Soda...");
-                    Console.WriteLine();
-                    break;
-                case "2":
-                    Console.WriteLine("Vending Chips...");
-                    Console.WriteLine();
-                    break;
-                case "3":
-                    Console.WriteLine("Vending Candy...");
-                    Console.WriteLine();
-                    break;
-                case "4":
-                    Console.WriteLine("Vending Water...");
-                    Console.WriteLine();
-                    break;
-                case "5":
-                    Console.WriteLine("Vending Juice...");
-                    Console.WriteLine();
-                    break;
-                default:
-                    Console.WriteLine("Invalid selection. Please try again.");
-                    break;
-            }
+            Console.WriteLine("Vending Soda...");
+            Console.WriteLine();
+        }
+
+        private static void VendChips()
+        {
+            Console.WriteLine("Vending Chips...");
+            Console.WriteLine();
+        }
+
+        private static void VendCandy()
+        {
+            Console.WriteLine("Vending Candy...");
+            Console.WriteLine();
+        }
+
+        private static void VendWater()
+        {
+            Console.WriteLine("Vending Water...");
+            Console.WriteLine();
+        }
+
+        private static void VendJuice()
+        {
+            Console.WriteLine("Vending Juice...");
+            Console.WriteLine();
+        }
+
+        private static void HandleInvalidSelection()
+        {
+            Console.WriteLine("Invalid selection. Please try again.");
         }
     }
 }
