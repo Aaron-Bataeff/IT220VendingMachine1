@@ -10,7 +10,7 @@ namespace VendingMachine1
             Console.WriteLine("Welcome to the Free Vending Machine!");
             Console.WriteLine();
             Console.WriteLine("Please make a selection from the following options:");
-            string[] items = { "1. Soda", "2. Chips", "3. Candy", "4. Water", "5. Juice", "6. Gum", "7. Granola Bar" };
+            string[] items = { "1. Soda", "2. Chips", "3. Candy", "4. Water", "5. Juice", "6. Gum", "7. Granola Bar", "8. Energy Drink" };
             foreach (var item in items)
             {
                 Console.WriteLine(item);
@@ -45,6 +45,9 @@ namespace VendingMachine1
                     break;
                 case "7":
                     VendGranolaBar();
+                    break;
+                case "8":
+                    VendEnergyDrink();
                     break;
                 default:
                     HandleInvalidSelection();
@@ -94,6 +97,12 @@ namespace VendingMachine1
         private static void VendGranolaBar()
         {
             Console.WriteLine("Vending Granola Bar...");
+            Console.WriteLine();
+        }
+
+        private static void VendEnergyDrink()
+        {
+            Console.WriteLine("Vending Energy Drink...");
             Console.WriteLine();
         }
 
